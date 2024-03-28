@@ -1,0 +1,56 @@
+{% extends "sitio/layout.html" %}{% load static %} 
+
+{% block content %}
+  <div class="product-bloq">
+            {% for message in messages %}
+                <div class="alert alert-warning alert-dismissible fade show col-12" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>{{message}}</strong> 
+                </div>
+            {% endfor %}
+
+              <h1 class="letratitulo center"> Productos </h1>
+                    <div class="cards">
+                      {% for producto in productos_all %}
+
+                      <div class="card fit">
+
+                          <div class="div-imagen">
+                            <img src="{{MEDIA_URL}}{{producto.imagen.url}}" class="desvanecer">
+                            <a href="{% url 'SITIO:producto_show' producto.id %}" class="vistavermas" >Ver más</a>
+
+
+                          </div>
+                          
+                          <div class="card-cuerpo">
+                              <h3 class="fixed">
+                                  {{ producto.titulo.title.title|truncatechars:35 }}
+                              </h3>
+                              <p>
+                                  {{ producto.descripcion.capitalize|truncatechars:70 }}
+                              </p>
+
+                                <h3 class="preciowrap" >
+                                  ${{ producto.precio }}
+                                </h3>
+
+                              <a href="{% url 'SITIO:producto_show' producto.id %}" class="btn btn-success btn-block">Ver</a>
+                                   
+                             {% if user.is_superuser %}
+                                  <a href="{% url 'SITIO:producto_edit' producto.id %}" class="btn btn-outline-secondary btn-block">Editar</a>
+                                  <a href="{% url 'SITIO:producto_delete' producto.id %}" class="btn btn-outline-danger btn-block">Eliminar</a>
+                              {% endif %} 
+                          </div>
+                      </div>
+
+
+
+           
+                      {% endfor %}
+
+
+    </div>
+{% endblock %}
+
