@@ -1,0 +1,79 @@
+
+{% extends "sitio/layout.html" %} {% load static %} 
+
+{% block content %}
+
+
+    <div>
+      <div class="container">
+        
+        <div class="row rowita ">
+         </n>
+         <h1> 
+         <h1> 
+  
+
+          <h1 class="titulo">Contacto</h1>
+            
+  
+            <form action="servicios" method="post" name="formulario" class="formita">
+              {{msj}}
+              {% csrf_token %}
+                <div class="fondo-label-form rounded">
+                  <label  for="">Nombre</label>
+                </div>
+  
+                <input type="text" placeholder="Tomás" class="form-control" id="txt_nombre" required>
+  
+                <div class="fondo-label-form rounded">
+                  <label for="">Apellido</label>
+                </div>
+                <input type="text" placeholder="Vásquez" class="form-control" id="txt_apellido" required>
+  
+  
+                <div class="fondo-label-form rounded">
+                  <label for="">Telefono</label>
+                </div>
+                <input type="number" placeholder="995935599" class="form-control" name="txt_telefono" id="txt_telefono" required>
+  
+  
+                <div class="fondo-label-form rounded">
+                  <label for="">Email</label>
+                </div>
+  
+                <input type="email" placeholder="email@ejemplo.cl" class="form-control" name="txt_email" id="txt_email" required>
+                
+                <div class="fondo-label-form rounded">
+                  <label for="">Indique servicio</label>
+                </div>
+
+                <select id="tipo_servicio" name="tipo_servicio" class="form-select">
+                  <option value="Servicios"></option>
+                  <option value="tass">Tasación</option>
+                  <option value="sell_product">Vender Producto</option>
+                  <option value="rest">Restauración</option>
+                </select>
+  
+                <div class="fondo-label-form rounded">
+                  <label for="">Mensaje</label>
+  
+                </div>
+  
+                <textarea class="form-control" placeholder="Escriba aquí..." name="txa_otro" id="txa_otro" cols="30" rows="5"></textarea>
+                <br>
+                <input type="submit" class="btn btn-transparent botonnaranjo" value="Entregar" onclick="">
+  
+  
+                <input type="reset" class="btn btn-dark" value="Limpiar">
+                <br>
+                <br>
+  
+            </form>
+  
+            </div>
+        </div>
+      </div>
+    </div>
+    
+    
+  {% endblock %}
